@@ -1,47 +1,55 @@
-# Please Support This Project!
+# Raspberry Pi PXE Server
+# Overview
 
-I would appreciate a donation if you found it useful.
+The Raspberry Pi PXE Server is a tool that transforms your Raspberry Pi into a PXE (Preboot eXecution Environment) server, allowing other Raspberry Pis on your network to boot from the network. This can be particularly useful for diskless Raspberry Pi setups or for efficient network-based installations.
+# Features
 
-[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=53CD2WNX3698E&lc=US&item_name=PREngineer&item_number=RPi-PXE%2dServer&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
+    Enables network boot (PXE) support on your Raspberry Pi.
+    Facilitates easy network booting of other Raspberry Pis.
+    Supports various storage options:
+        NAS server in your network (recommended).
+        Attached storage device in your Raspberry Pi.
+        The boot device of your Raspberry Pi (SD Card - not recommended | SATA Hard Disk - OK).
 
-You can also support me by sending a BitCoin donation to the following address:
+# Prerequisites
 
-19JXFGfRUV4NedS5tBGfJhkfRrN2EQtxVo
+Before installing and configuring the Raspberry Pi PXE Server, make sure you have the following:
 
-# RPI-PXE
+    Raspberry Pi (model 1, 2, 3 B+, 4 or later) with internet connectivity and with Raspbian OS installed.
+    Storage device (NAS, attached storage, or internal storage) for holding bootable files.
+    Basic knowledge of networking and Raspberry Pi.
 
-A PXE Server for Raspberry Pis
+# Installation
 
-# About
+  Clone this repository to your Raspberry Pi using the following command:
 
-This shell application is designed to work with all Raspberry Pi models.  It is simple and lightweight.
+  ```bash
+  git clone https://github.com/oxmc/PiPXE.git
+  ```
 
-When installed, it will turn your Raspberry Pi into a PXE Server that will help other Raspberry Pis in your network to boot from the network.
+# Configuration:
 
-You can choose to hold the files in:
+    Configure the PXE Server settings.
+    Specify the location of your bootable files (NAS, attached storage, or local boot device).
 
-  1. A NAS server in your network (recommended)
-  2. An attached storage device in your Raspberry Pi
-  3. The boot device of your Raspberry Pi (SD Card - not recommended | SATA Hard Disk - OK)
+# Start the PXE Server:
 
+Run the following command to start the PXE server:
 
+```bash
+sudo ./start_pxe_server.sh
+```
 
-# How to Install
+  Boot Other Raspberry Pis:
 
-  * Step 1 - Clone the repository
+  Configure the target Raspberry Pi(s) to boot from the network. Consult the documentation for your Raspberry Pi model to enable PXE boot.
 
-    cd ~
+# Usage
 
-    sudo git clone https://github.com/Tech-Byte-Tips/RPi-PXE
-    
-  * Step 2 - Run the Application
+    Ensure your Raspberry Pi PXE Server is running and accessible on your network.
+    Configure the target Raspberry Pi(s) to boot from the network (PXE boot).
+    Power on the target Raspberry Pi(s), and they should boot from the network, using the bootable files you specified in the configuration.
 
-    cd ~/RPi-PXE && chmod +x RPi-PXE.sh && sudo ./RPi-PXE.sh
+# Support and Contribution
 
-# License
-
-All rights are reserved by Jorge Pabón.
-
-Free to use for personal use.
-Use of this application for commercial purposes without a license is not authorized.
-For licensing costs contact Jorge Pabón at pianistapr@hotmail.com.
+If you encounter issues or have suggestions for improvement, please open an issue or submit a pull request on the GitHub repository.
